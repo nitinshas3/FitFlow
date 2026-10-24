@@ -34,3 +34,7 @@ public class Activity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 }
+
+// the map is used to store additaonal metrics , this is non relational db so there will be some extra stuff everytime , so the frontend has to send that in a map format to get stored in here
+
+// in postgres if we want to do this , there is something called jsondb , that created a colum of json

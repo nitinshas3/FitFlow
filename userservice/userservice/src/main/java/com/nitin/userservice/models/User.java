@@ -15,18 +15,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String keycloakId;
+    private String keycloakId; // primary key in kecloack db , can be used for updating and stuff
 
     @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(nullable = false)  // called db validation
+    private String password;   // usually not required if using iam
     private String firstName;
     private String lastName;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.USER;
+    private UserRole role = UserRole.USER; // default values of roles being assigned
 
     @CreationTimestamp
     private LocalDateTime createdAt;
