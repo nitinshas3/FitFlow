@@ -13,4 +13,4 @@ public class EurekaApplication {
 	}
 
 }
-//eureka server yml config , above annotation , yml clinet config in services , what does applciaton prperties do
+//eureka server yml config , above annotation , yml client config in services , what does applciaton prperties do
