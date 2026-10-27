@@ -29,3 +29,4 @@ public class UserController {
         return ResponseEntity.ok(userService.existByUserId(userId));
     }
 }
+//  first one gets the user , second registers the user third one validates the user
