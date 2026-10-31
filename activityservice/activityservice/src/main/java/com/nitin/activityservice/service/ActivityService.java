@@ -29,7 +29,7 @@ public class ActivityService {
 
         if (!isValidUser) {
             throw new RuntimeException("Invalid User: " + request.getUserId());
-        }
+        } // this used for interservice communication to validate the user through eureka and webclient api
 
         Activity activity = Activity.builder()
                 .userId(request.getUserId())

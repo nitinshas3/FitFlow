@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 @RequiredArgsConstructor
 @Slf4j
 public class UserValidationService {
-    private final WebClient userServiceWebClient;
+    private final WebClient userServiceWebClient; // this is preconfigured to point at certain url of userservice , configuration done in webclient configure
 
     public boolean validateUser(String userId) {
         log.info("Calling User Service for {}", userId);
@@ -25,3 +25,5 @@ public class UserValidationService {
         return false;
     }
 }
+
+// this used for interservice communication , to validate the user who is giving the acitivty details , if there is a user like that or not ,

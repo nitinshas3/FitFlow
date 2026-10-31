@@ -20,3 +20,5 @@ public class WebClientConfig {
                 .build();
     }
 }
+
+//used for interservice communitation , used to validate user , when activity is getting stored , calls user services api to validate the user

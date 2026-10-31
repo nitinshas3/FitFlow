@@ -70,3 +70,4 @@ public class UserService {
         return repository.existsByKeycloakId(userId);
     }
 }
+// existsbyuserid for the activityservice to validate user by interserive communitation
