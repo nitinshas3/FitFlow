@@ -30,7 +30,7 @@ public class ActivityService {
         if (!isValidUser) {
             throw new RuntimeException("Invalid User: " + request.getUserId());
         } // this used for interservice communication to validate the user through eureka and webclient api
-
+        // this is synchronous communication kafka not used here
         Activity activity = Activity.builder()
                 .userId(request.getUserId())
                 .type(request.getType())
@@ -46,7 +46,7 @@ public class ActivityService {
             kafkaTemplate.send(topicName, savedActivity.getUserId(), savedActivity);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } // sending activity to aiservice to generate recommendation , sending by asynchronous comm using kafka , received by kafkaeventlistener in aiservice
 
 
         return mapToResponse(savedActivity);
@@ -76,3 +76,6 @@ public class ActivityService {
     }
 
 }
+// track activity saves the activity in db , checks if valid user in user service this is synchronous communication , then creates activity object and saves it
+
+// getuseractivity gets a single users activities

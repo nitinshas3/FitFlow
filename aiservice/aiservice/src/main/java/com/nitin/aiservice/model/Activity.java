@@ -33,3 +33,6 @@ public class Activity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 }
+// this is used for deserialization  purpose , for mapping the kafka json object , this and activity type both of them
+
+// thats why no mongo repostiroy and all used here
