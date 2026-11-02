@@ -14,7 +14,10 @@ spring:
         spring.json.trusted.packages: "*"
       # kafka stores and sends json objects not http requests , those json objects contain http body
 
-
+gemini:
+  api:
+    url: ${GEMINI_URL}
+    key: ${GEMINI_KEY} # this will be used in gemini service , configure them through environment variables
 
 data:
   mongodb:
