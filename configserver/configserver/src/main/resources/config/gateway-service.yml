@@ -1,0 +1,41 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+# the above thig to register this as client in eureka server registry
+
+## the below is the api routing of many services
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8181/realms/fitness-app/protocol/openid-connect/certs
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: lb://USER-SERVICE  # where should it redirect
+              predicates:
+                - Path=/api/users/** #if these are the sources
+
+            - id: activity-service
+              uri: lb://ACTIVITY-SERVICE
+              predicates:
+                - Path=/api/activities/**
+
+            - id: ai-service
+              uri: lb://AI-SERVICE
+              predicates:
+                - Path=/api/recommendations/**
+
+
+
+# this is to mention the gateways port number
+
+server:
+  port: 8080

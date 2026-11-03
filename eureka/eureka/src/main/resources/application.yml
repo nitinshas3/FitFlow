@@ -10,4 +10,4 @@ eureka:
 server:
   port: 8761
 
-# this is used to register all the services in microservice   and manage them , gives features like loadbalancing etc
+# this is used to register all the services in microservice   and manage them , gives features like loadbalancing etc used for interservice communication without hardcoding the url and port numbers of one service in another service

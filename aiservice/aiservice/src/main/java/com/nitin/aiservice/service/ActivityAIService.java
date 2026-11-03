@@ -30,7 +30,7 @@ public class ActivityAIService {
         return processAIResponse(activity, aiResponse);
     }
 
-    private Recommendation processAIResponse(Activity activity, String aiResponse) {
+    private Recommendation processAIResponse(Activity activity, String aiResponse) { // this method used to shape the output to recommendation
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(aiResponse);

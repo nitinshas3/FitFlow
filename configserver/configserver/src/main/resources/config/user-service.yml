@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: user-service
+
+datasource:
+  url: jdbc:postgresql://localhost:5432/fitness_user_db
+  username: postgres
+  password: mandeshpostgresql
+
+jpa:
+  hibernate:
+    ddl-auto: update
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+  server:
+    port: 8081
+
+
+
+#Config Server starts on port 8888 and acts as a central place to store configuration for all microservices.
+#spring.profiles.active=native means Config Server reads config files from the local filesystem/classpath instead of a Git repository.
+#classpath:/config means it looks inside src/main/resources/config/ for files like user-service.yml.
+#User Service starts and, through spring.config.import=configserver:, contacts the Config Server.
+#Config Server finds user-service.yml and sends its properties (DB, JPA, Eureka, port, etc.) to User Service.
+#User Service applies those properties, registers with Eureka, and starts on port 8081.
+#In production, instead of native, Config Server often uses a Git repository, allowing all service configurations to be managed centrally in one place.

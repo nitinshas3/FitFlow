@@ -1,29 +1,6 @@
 spring:
   application:
     name: activity-service
-    kafka:
-      bootstrap-servers: localhost:9092 # this is the kafka port which we run
-      producers:
-        key-serializers: org.apache.kafka.common.serialization.StringSerializer
-        value-serializers: org.springframework.kafka.support.serializer.JsonSerializer
-        # kafka stores and sends json objects not http requests , those json objects contain http body
 
-data:
-  mongodb:
-    uri: mongodb://localhost:27017/aiactivityfitness
-    database: aiactivityfitness
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/  # setting this service as a client for eureka server so that it can register this , in eureaka server
-
-server:
-  port: 8082 # port in which this service will run
-
-
-
-kafka:
-  topic:
-    name: activity-events # topic where request of this service should go
-
+  config:
+    import: optional:configserver:http://localhost:8888
