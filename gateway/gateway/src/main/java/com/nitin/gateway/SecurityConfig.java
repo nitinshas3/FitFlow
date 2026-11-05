@@ -40,3 +40,9 @@ public class SecurityConfig {
         return source;
     }
 }
+
+// Configures Spring Security for our API Gateway using WebFlux (reactive Spring).
+// @EnableWebFluxSecurity enables security, while SecurityWebFilterChain defines the security rules.
+// The gateway acts as an OAuth2 Resource Server, validating JWTs issued by Keycloak.
+// CSRF is disabled because we use stateless JWT-based authentication instead of session-based authentication.
+// CORS (Cross-Origin Resource Sharing) allows our React frontend to communicate with the gateway.
